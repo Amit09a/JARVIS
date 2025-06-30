@@ -33,4 +33,30 @@ $(document).ready(function () {
             sync:true
         }
     })
+
+    // mic button click event
+    $('#Micbtn').on('click', function() {
+        eel.playAssistantSound(); // Play the assistant sound
+        $('#oval').attr('hidden',true);
+        $('#SiriWave').attr('hidden',false);
+        eel.allCommands()()
+
+    });
+
+    function doc_keyUp(e) {
+    const key = e.key.toLowerCase();  // Normalize just in case
+
+    if (key === 'j' && e.metaKey) {
+        console.log("✅ Command + J pressed on macOS");
+        eel.playAssistantSound();
+        $("#Oval").attr("hidden", true);
+        $("#SiriWave").attr("hidden", false);
+        eel.allCommands(); // No () unless allCommands returns another function
+    }
+}
+
+document.addEventListener('keyup', doc_keyUp, false);
+
+
+
 });

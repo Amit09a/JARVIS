@@ -123,9 +123,10 @@ def hotword():
         # pre trained keywords    
         porcupine=pvporcupine.create(keywords=["jarvis","alexa","Bumblebee"]) 
         paud=pyaudio.PyAudio()
+        #stream microphone in background
         audio_stream=paud.open(rate=porcupine.sample_rate,channels=1,format=pyaudio.paInt16,input=True,frames_per_buffer=porcupine.frame_length)
         
-        # loop for streaming
+        # loop for streaming of microphone continuously
         while True:
             keyword=audio_stream.read(porcupine.frame_length)
             keyword=struct.unpack_from("h"*porcupine.frame_length,keyword)
