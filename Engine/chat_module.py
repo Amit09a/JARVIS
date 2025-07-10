@@ -1,7 +1,7 @@
 from huggingface_hub import InferenceClient
 
 HF_TOKEN = "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"
-client = InferenceClient("HuggingFaceH4/zephyr-7b-beta", token=HF_TOKEN)  # ✅ Chat-capable model
+client = InferenceClient("HuggingFaceH4/zephyr-7b-beta", token=HF_TOKEN)  # Chat-capable model
 
 def chatBot(query):
     try:
